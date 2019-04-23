@@ -2,12 +2,8 @@ import bodyParser from 'body-parser';
 import chalk from 'chalk';
 import express from 'express';
 
-import { AgenceController } from './Agence/Agence.controller';
-import { InscriptionController } from './inscription/inscription.controller';
-import { LocalisationController } from './Localisation/Localisation.controller';
 import logger from './logger.tools';
-// import { NoteController } from './note/note.controller';
-// import { RoomController } from './room/room.controller';
+import { NoreveController } from './Noreve/Noreve.controller';
 import { setupDb } from './setup-db';
 
 async function bootstrap() {
@@ -33,21 +29,8 @@ async function bootstrap() {
     return res.json({ message: 'Hello world !' });
   });
 
-  // use custom controller on '/inscription' pattern
-  const inscriptionRoutes = await new InscriptionController().getRoutes();
-  app.use('/inscription', inscriptionRoutes);
-
-  const agenceRoutes = await new AgenceController().getRoutes();
-  app.use('/agence', agenceRoutes);
-
-  // const noteRoutes = await new NoteController().getRoutes();
-  // app.use('/note', noteRoutes);
-
-  // const roomRoutes = await new RoomController().getRoutes();
-  // app.use('/room', roomRoutes);
-
-  const localisationRoutes = await new LocalisationController().getRoutes();
-  app.use('/localisation', localisationRoutes);
+  const noreveRoutes = await new NoreveController().getRoutes();
+  app.use('/noreve', noreveRoutes);
 
   // define application port
   app.listen(3015);
