@@ -5,7 +5,6 @@
     "strict": true,
     "strictPropertyInitialization": false,
     "noUnusedLocals": true,
-    // https://github.com/nestjs/nest/issues/81
     "skipLibCheck": true,
     "removeComments": true,
     "lib": ["es2017"],

@@ -1,10 +1,10 @@
 {
   "type": "mysql",
-  "host": "dev.noreve/phpmyadmin",
+  "host": "bdd.noreve",
   "port": 3306,
   "username": "noreve",
   "password": "Noreve1!",
-  "database": "noreve",
+  "database": "test",
   "synchronize": false,
   "dropSchema": false,
   "logging": false,

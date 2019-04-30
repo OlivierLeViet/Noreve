@@ -1,5 +1,5 @@
 import { getCustomRepository } from 'typeorm';
-import { NoreveRepository } from '../Noreve/Noreve.repository';
+import { NoreveRepository } from './noreve.repository';
 
 export class NoreveService {
   /**
@@ -18,7 +18,7 @@ export class NoreveService {
   }
   private static instance: NoreveService;
 
-  // private noreveRepository: NoreveRepository;
+  private noreveRepository: NoreveRepository;
 
   public async getNoreve(noreveId: string) {
     return this.noreveRepository.findOne(noreveId);

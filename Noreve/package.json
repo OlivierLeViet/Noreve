@@ -1,5 +1,5 @@
 {
-  "name": "immosoftvente",
+  "name": "noreve",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -22,6 +22,7 @@
     "tables": "^2.2.2",
     "text-table": "^0.2.0",
     "ts-node": "^8.0.3",
+    "tslint": "^5.16.0",
     "typeorm": "^0.2.15",
     "typescript": "^3.3.4000"
   }
