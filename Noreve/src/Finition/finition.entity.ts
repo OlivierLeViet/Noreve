@@ -1,7 +1,7 @@
 import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
 
 @Entity({ name: 'ps_finition' })
-export class Noreve {
+export class Finition {
   @PrimaryGeneratedColumn('uuid', { name: 'id_finition' })
   public id_finition: number;
 

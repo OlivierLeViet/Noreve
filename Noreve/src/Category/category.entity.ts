@@ -1,7 +1,7 @@
 import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
 
-@Entity({ name: 'ps_product' })
-export class Noreve {
+@Entity({ name: 'ps_category' })
+export class Category {
   @PrimaryGeneratedColumn('uuid', { name: 'id_category' })
   public id_category: number;
 

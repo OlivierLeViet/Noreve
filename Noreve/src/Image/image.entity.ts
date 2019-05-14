@@ -1,10 +1,12 @@
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import { Entity, JoinColumn, OneToOne, PrimaryGeneratedColumn } from 'typeorm';
+import { Product } from '../Product/product.entity';
 
 @Entity({ name: 'ps_image' })
-export class Noreve {
+export class Image {
   @PrimaryGeneratedColumn('uuid', { name: 'id_image' })
   public id_image: number;
 
-  @Column({ name: 'id_product', type: 'int' })
-  public id_product: number;
+  @OneToOne(type => Product)
+  @JoinColumn()
+  product: Product;
 }
