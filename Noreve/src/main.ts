@@ -3,7 +3,7 @@ import chalk from 'chalk';
 import express from 'express';
 
 import logger from './logger.tools';
-import { NoreveController } from './Noreve/noreve.controller';
+import { ProduitController } from './Produit/produit.controller';
 import { ProductController } from './Product/product.controller';
 import { setupDb } from './setup-db';
 
@@ -30,11 +30,11 @@ async function bootstrap() {
     return res.json({ message: 'Hello world !' });
   });
 
-  const noreveRoutes = await new NoreveController().getRoutes();
-  app.use('/noreve', noreveRoutes);
-
   const productRoutes = await new ProductController().getRoutes();
   app.use('/product', productRoutes);
+
+  const produitRoutes = await new ProduitController().getRoutes();
+  app.use('/produit', produitRoutes);
 
   // define application port
   app.listen(3015);

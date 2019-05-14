@@ -5,14 +5,8 @@ export class Product {
   @PrimaryGeneratedColumn('uuid', { name: 'id_product' })
   public id_product: number;
 
-  @Column({ name: 'id_category_default', type: 'int' })
-  public id_category: number;
-
   @Column({ name: 'price', type: 'float' })
   public price: number;
-
-  @Column({ name: 'reference', type: 'varchar' })
-  public reference: string;
 }
 
 // Ps_product : ID, id_category_default, price, reference, date_add, date_upd,

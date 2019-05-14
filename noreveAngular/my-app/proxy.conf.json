@@ -1,0 +1,15 @@
+{
+  "/api/api.php": {
+    "target": {
+      "host": "coinfddf",
+      "protocol": "http:",
+      "port": 1234
+    },
+    "headers": {
+      "Connection": "keep-alive"
+    },
+    "secure": false,
+    "changeOrigin": true,
+    "logLevel": "info"
+  }
+}

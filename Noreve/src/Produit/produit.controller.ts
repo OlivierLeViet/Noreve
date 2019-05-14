@@ -1,26 +1,26 @@
 import { Request, Response, Router } from 'express';
 
 import { IRouteInterface } from '../tools/route.interface';
-import { NoreveService } from './Noreve.service';
+import { ProduitService } from './Produit.service';
 
-export class NoreveController {
+export class ProduitController {
   constructor() {
     this.router = Router();
-    this.noreveService = NoreveService.getInstance;
+    this.produitService = ProduitService.getInstance;
   }
 
-  private noreveService: () => NoreveService;
+  private produitService: () => ProduitService;
   private router: Router;
 
   /**
-   * Define and return the router of NoreveController.
+   * Define and return the router of ProduitController.
    *
    * @returns Resolves with the router and its routes
    */
   async getRoutes() {
     const routes: IRouteInterface[] = [
-      { path: '/:noreveId', method: 'get', actions: [this.getNoreve] },
-      { path: '/id/:noreveId', method: 'get', actions: [this.getNoreve] },
+      { path: '/:id_lang', method: 'get', actions: [this.getProduit] },
+      { path: '/id/:produitId', method: 'get', actions: [this.getProduit] },
       { path: '/', method: 'get', actions: [this.getAll] },
     ];
 
@@ -32,18 +32,18 @@ export class NoreveController {
     return this.router;
   }
 
-  private async getNoreve(req: Request, res: Response) {
-    res.json({ results: await this.noreveService().getNoreve(req.params) });
+  private async getProduit(req: Request, res: Response) {
+    res.json({ results: await this.produitService().getProduit(req.params) });
   }
 
   /**
-   * Return a list of all noreves from Db
+   * Return a list of all produits from Db
    *
    * @param req
    * @param res
-   * @returns Resolves with the list of all Noreves
+   * @returns Resolves with the list of all Produits
    */
   private async getAll(req: Request, res: Response) {
-    res.json({ results: await this.noreveService().getAll() });
+    res.json({ results: await this.produitService().getAll() });
   }
 }

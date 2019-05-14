@@ -1,58 +1,72 @@
 import {
-  Component, OnInit, ViewChild,
+  Component,
+  OnInit,
+  ViewChild,
   ViewContainerRef,
   ComponentFactoryResolver,
   ComponentRef,
-  ComponentFactory} from '@angular/core';
-import { DivArticleComponent } from '../div-article/div-article.component';
-import { ErreurRechercheComponent } from '../erreur-recherche/erreur-recherche.component';
+  ComponentFactory
+} from "@angular/core";
+import { DivArticleComponent } from "../div-article/div-article.component";
+import { ErreurRechercheComponent } from "../erreur-recherche/erreur-recherche.component";
 import { HomeService } from "./home.service";
-import { Router, NavigationEnd } from '@angular/router';
+import { Router, NavigationEnd } from "@angular/router";
+import { HttpClient, HttpHeaders } from "@angular/common/http";
+import { Observable } from "rxjs";
 
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css'],
+  selector: "app-home",
+  templateUrl: "./home.component.html",
+  styleUrls: ["./home.component.css"]
 })
-
 export class HomeComponent implements OnInit {
-
   //attribues
 
-  @ViewChild('DivArticleContainer', { read: ViewContainerRef }) entry: ViewContainerRef;
-  baseUrl = 'noreve.com/product/image/form/{idImage}';
+  @ViewChild("DivArticleContainer", { read: ViewContainerRef })
+  entry: ViewContainerRef;
+  baseUrl = "noreve.com/product/image/form/{idImage}";
   articles: any;
-
 
   //méthodes
 
   //rechercher un élement dans les articles
-  rechercher(){
+  rechercher() {
     let i = 1;
     let articleHomeService = "";
-    let elementARechercher = (<HTMLInputElement>document.getElementById("searchInput")).value;
+    let elementARechercher = (<HTMLInputElement>(
+      document.getElementById("searchInput")
+    )).value;
     let reponse = this.HomeService.rechercher(elementARechercher);
     this.entry.clear();
 
-    if (reponse.length <= 1){
-      const factory = this.resolver.resolveComponentFactory(ErreurRechercheComponent);
+    if (reponse.length <= 1) {
+      const factory = this.resolver.resolveComponentFactory(
+        ErreurRechercheComponent
+      );
       const componentRef = this.entry.createComponent(factory);
-    }
-    else{
+    } else {
       do {
-        const factory = this.resolver.resolveComponentFactory(DivArticleComponent);
+        const factory = this.resolver.resolveComponentFactory(
+          DivArticleComponent
+        );
         const componentRef = this.entry.createComponent(factory);
 
-        articleHomeService = "this.HomeService.articles." + this.HomeService.getObjectById(reponse[i]) + "[" + this.HomeService.getPositionArticle(reponse[i])+"]";
+        articleHomeService =
+          "this.HomeService.articles." +
+          this.HomeService.getObjectById(reponse[i]) +
+          "[" +
+          this.HomeService.getPositionArticle(reponse[i]) +
+          "]";
 
         componentRef.instance.title = eval(articleHomeService).title; // placement de l'attribut de l'objet dynamiquement
-        componentRef.instance.description = eval(articleHomeService).description;
+        componentRef.instance.description = eval(
+          articleHomeService
+        ).description;
         componentRef.instance.id = eval(articleHomeService).id;
         componentRef.instance.imagePath = eval(articleHomeService).imagePath;
         componentRef.instance.price = eval(articleHomeService).price;
         i++;
-      }
-      while (i < reponse.length);
+      } while (i < reponse.length);
     }
   }
 
@@ -60,99 +74,97 @@ export class HomeComponent implements OnInit {
   rechercherCategorie() {
     let i = 1;
     let articleHomeService = "";
-    let elementARechercher = (<HTMLInputElement>document.getElementById("recherche")).value;
+    let elementARechercher = (<HTMLInputElement>(
+      document.getElementById("recherche")
+    )).value;
     let reponse = this.HomeService.rechercherCategorie(elementARechercher);
     this.entry.clear();
 
-    if ( typeof reponse == "undefined") {
-      const factory = this.resolver.resolveComponentFactory(ErreurRechercheComponent);
+    if (typeof reponse == "undefined") {
+      const factory = this.resolver.resolveComponentFactory(
+        ErreurRechercheComponent
+      );
       const componentRef = this.entry.createComponent(factory);
-    }
-    else {
+    } else {
       this.createComponent(reponse);
     }
   }
 
- 
   //méthode pour créer dynamiquement une div article
-  createComponent(object : string) 
-  {
-
-    let arrayLenght : number;
+  createComponent(object: string) {
+    let arrayLenght: number;
     let i = 0;
     arrayLenght = this.HomeService.getArrayLenght(object);
     let articleHomeService = "";
     this.entry.clear();
-    
-    
-      do{
-        const factory = this.resolver.resolveComponentFactory(DivArticleComponent);
-        const componentRef = this.entry.createComponent(factory);
-        articleHomeService = "this.HomeService.articles." + object;
-        articleHomeService = articleHomeService+"["+ i +"]";
-        componentRef.instance.title = eval(articleHomeService).title; // placement de l'attribut de l'objet dynamiquement
-        componentRef.instance.description = eval(articleHomeService).description;
-        componentRef.instance.id = eval(articleHomeService).id; 
-        componentRef.instance.imagePath = eval(articleHomeService).imagePath; 
-        componentRef.instance.price = eval(articleHomeService).price; 
-        i++;
-      }
-      while (i < arrayLenght);
 
-
-
+    do {
+      const factory = this.resolver.resolveComponentFactory(
+        DivArticleComponent
+      );
+      const componentRef = this.entry.createComponent(factory);
+      articleHomeService = "this.HomeService.articles." + object;
+      articleHomeService = articleHomeService + "[" + i + "]";
+      componentRef.instance.title = eval(articleHomeService).title; // placement de l'attribut de l'objet dynamiquement
+      componentRef.instance.description = eval(articleHomeService).description;
+      componentRef.instance.id = eval(articleHomeService).id;
+      componentRef.instance.imagePath = eval(articleHomeService).imagePath;
+      componentRef.instance.price = eval(articleHomeService).price;
+      i++;
+    } while (i < arrayLenght);
   }
 
-  getPositionArticle(l_id: number){
-      console.log(this.HomeService.getPositionArticle(l_id));
-    }
+  getPositionArticle(l_id: number) {
+    console.log(this.HomeService.getPositionArticle(l_id));
+  }
 
   //constructeur
 
-  constructor(private resolver: ComponentFactoryResolver, private HomeService: HomeService, private router: Router) { 
+  constructor(
+    private resolver: ComponentFactoryResolver,
+    private HomeService: HomeService,
+    private router: Router
+  ) {}
 
-  }
-
- 
   //lors de l'initialisation du component (différent du constructeur voir la doc)
-  
+
   ngOnInit() {
-
-
     //scroll en haut quand on arrive
-    window.onbeforeunload = function () {
+    window.onbeforeunload = function() {
       window.scrollTo(0, 0);
-    }
+    };
 
     //scroll en haut de la page quand on navigue
-    this.router.events.subscribe((evt) => {
+    this.router.events.subscribe(evt => {
       if (!(evt instanceof NavigationEnd)) {
         return;
       }
       window.scrollTo(0, 0);
     });
 
-
     this.articles = this.HomeService.articles;
 
-    let quantity : number = this.HomeService.idCard.length -1;
+    let quantity: number = this.HomeService.idCard.length - 1;
     let quantityString = quantity.toString();
-    $("#cardQuantity").fadeOut()
-    $("#cardQuantity").html(quantityString).fadeIn();
+    $("#cardQuantity").fadeOut();
+    $("#cardQuantity")
+      .html(quantityString)
+      .fadeIn();
 
     let tableauCategories = [""];
 
     for (let obj in this.articles) {
       tableauCategories.push(obj);
     }
-  
-    //barre de recherche
-    (<any>$('#recherche')).autocomplete({
-      source: tableauCategories,
-      minLength: 1,
-    }).data("ui-autocomplete")._renderItem = function (ul, item) {
 
-      ul.addClass('suggestions'); //Ul custom class here
+    //barre de recherche
+    (<any>$("#recherche"))
+      .autocomplete({
+        source: tableauCategories,
+        minLength: 1
+      })
+      .data("ui-autocomplete")._renderItem = function(ul, item) {
+      ul.addClass("suggestions"); //Ul custom class here
 
       return $("<li></li>")
         .addClass(item.suggestions) //item based custom class to li here
@@ -161,29 +173,29 @@ export class HomeComponent implements OnInit {
         .appendTo(ul);
     };
 
+    $(document).ready(function() {
+      var touch = $("#resp-menu");
+      var menu = $(".menu");
 
-    $(document).ready(function () {
-      var touch = $('#resp-menu');
-      var menu = $('.menu');
-
-      $(touch).on('click', function (e) {
+      $(touch).on("click", function(e) {
         e.preventDefault();
         menu.slideToggle();
       });
 
-      $(window).resize(function () {
+      $(window).resize(function() {
         var w = $(window).width();
-        if (w > 767 && menu.is(':hidden')) {
-          menu.removeAttr('style');
+        if (w > 767 && menu.is(":hidden")) {
+          menu.removeAttr("style");
         }
       });
-
     });
-  
-
+    this.HomeService.getProduitDetails().subscribe(data => {
+      console.log("test2");
+      if ((data.id_lang = "1")) {
+        console.log(data);
+      } else {
+        console.log("echec");
+      }
+    });
   }
-  
-
-
-   
 }
