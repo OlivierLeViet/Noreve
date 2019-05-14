@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, shrink-to-fit=no"
+    />
+    <title>Noreve - Produit</title>
+
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+    </head>
+
+  <body id ="body">
+    <nav
+      class="navbar navbar-light navbar-expand-lg fixed-top bg-white clean-navbar fadeIn header-standard navWithoutBorder"
+    >
+      <a class="navbar-brand2 logo titreProduit" href="#">NOREVE</a>
+      <div class="divBoutonProduit">
+        <button
+          routerLink=""
+          class="btn btn btn-primary btn-lg fadeIn"
+          type="button"
+          data-toggle="collapse"
+          data-target="#multiCollapseExample2"
+          aria-expanded="false"
+          aria-controls="multiCollapseExample2"
+          href="#"
+        >
+        <img class="flecheImage" src="./assets/img/left-arrow.png" />
+          Retour
+        </button>
+      </div>
+
+      <a id="panier2" (click)= "goToCard()" class="fadeIn">
+        
+        <button id="panier-btn" class="btn bouton-panier fadeIn" type="button" data-toggle="collapse"
+          data-target="#multiCollapseExample2" aria-expanded="false" aria-controls="multiCollapseExample2" href="#">
+          <span class="glyphicon glyphicon-shopping-cart image_panier" id ="cardQuantity"></span>
+  
+        </button>
+      
+      </a>
+      
+    </nav>
+
+
+    <main class="page product-page fadeIn">
+      <section class="clean-block clean-product dark">
+        <div class="container">
+          <div class="block-heading">
+            <h2 class="text-info">Personnalisez votre produit </h2>
+          </div>
+          <div class="block-content">
+            <div class="product-info">
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="gallery">
+                    <img
+                      class="img-fluid d-block mx-auto"
+                      src="{{imagePath}}"
+                    />
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="info">
+                    <h3>{{title}}</h3>
+                    <div class="price">
+                      <h3>{{price}} €</h3>
+                    </div>
+                    <div class= "containerBoutton">
+                      
+                      <button (click)="addToCard()" id="plus-btn" class="btn btn-primary" type="button">
+                        <i class="icon-basket"></i>Ajouter au panier
+                      </button>
+                      <div id="div-notif2">
+                      
+                      </div>
+                    </div>
+                    <div class="summary">
+                      <p>
+                        {{description}}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="product-info">
+              <div>
+                <ul class="nav nav-tabs" id="myTab">
+                  <li class="nav-item">
+                    <a class="nav-link active" role="tab" data-toggle="tab" id="description-tab">Personnalisation</a>
+                  </li>
+                </ul>
+              
+                <!-- personnalisation -->
+
+              </div>
+            </div>
+
+            
+            <div class="clean-related-items">
+              <div class="items"></div>
+            </div>
+            </div>
+            </div>
+            </section>
+            </main>
+
+
+
+
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.js"></script>
+    <script src="assets/js/smoothproducts.min.js"></script>
+    <script src="assets/js/theme.js"></script>
+  </body>
+</html>

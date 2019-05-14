@@ -1,0 +1,28 @@
+
+<div class= "div-article fadeIn">
+  <div routerLink='produits/{{id}}' class="div-clickable">
+    <div classe="div-image">
+      <img class ="imageDivArticle" src="{{imagePath}}">
+    </div>
+    <div class = "div-titre">
+        {{title}}
+       <div class="div-prix">
+         {{price}} €
+       </div>
+    </div>
+  
+    <hr class="bar">
+   
+    <div class="col-sm-12">
+      <div class ="div-description">{{description}} </div>
+    </div>
+  </div>
+
+  <div class ="div-notif" id="{{idDivNotif}}">
+   
+  </div>
+  <div class ="div-bouton">
+    <button class="btn btn-danger" id="details-btn" (click)="addToCard()">Ajouter au panier</button>
+  </div>
+</div>
+

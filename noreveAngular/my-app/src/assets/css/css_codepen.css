@@ -1,0 +1,416 @@
+/*Resize the wrap to see the search bar change!*/
+.wrap {
+  width: 30%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* The side navigation menu */
+#sidebar {
+  margin: 0;
+  padding: 0;
+  top: 95px;
+  width: 190px;
+  background-color: #911c24;
+  position: absolute;
+  height: 100%;
+  overflow: auto;
+}
+
+#sidebar li {
+  font: 67.5% "Lucida Sans Unicode", "Bitstream Vera Sans",
+    "Trebuchet Unicode MS", "Lucida Grande", Verdana, Helvetica, sans-serif;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+#sidebar a {
+  background: #911c24;
+  border-bottom: 1px solid #911c24;
+  color: #ccc;
+  display: block;
+  margin: 0;
+  padding: 8px 12px;
+  text-decoration: none;
+  font-weight: normal;
+}
+#sidebar a:hover {
+  background: #2580a2 url("images/hover.gif") left center no-repeat;
+  color: #fff;
+  padding-bottom: 8px;
+}
+
+/* Navbarre horizontale */
+
+@import url(http://fonts.googleapis.com/css?family=Montserrat:400);
+@import url(https://fonts.googleapis.com/css?family=Raleway);
+#cssmenu,
+#cssmenu ul,
+#cssmenu ul li,
+#cssmenu ul li a,
+#cssmenu #menu-button {
+  /* font-family: Montserrat; */
+  font-family: "Raleway", sans-serif;
+  /* margin: 0; */
+  margin-top: -5px;
+  padding: 0;
+  border: 0;
+  list-style: none;
+  line-height: 1;
+  display: block;
+  position: relative;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  z-index: 1;
+  margin-bottom: -3px;
+  margin-left: 0px;
+  cursor: pointer !important;
+}
+#cssmenu:after,
+#cssmenu > ul:after {
+  content: ".";
+  display: block;
+  clear: both;
+  visibility: hidden;
+  line-height: 0;
+  height: 0;
+}
+#cssmenu #menu-button {
+  display: none;
+}
+#cssmenu {
+  font-family: Montserrat;
+  background: #911c24;
+  z-index: 1;
+  clear: both;
+}
+#cssmenu > ul > li {
+  float: left;
+}
+#cssmenu.align-center > ul {
+  font-size: 0;
+  text-align: center;
+}
+#cssmenu.align-center > ul > li {
+  display: inline-block;
+  float: none;
+}
+#cssmenu.align-center ul ul {
+  text-align: left;
+}
+#cssmenu.align-right > ul > li {
+  float: right;
+}
+#cssmenu > ul > li > a {
+  padding: 17px;
+  font-size: 12px;
+  letter-spacing: 1px;
+  text-decoration: none;
+  color: #dddddd;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+#cssmenu > ul > li:hover > a {
+  color: #ffffff;
+}
+#cssmenu > ul > li.has-sub > a {
+  padding-right: 30px;
+}
+#cssmenu > ul > li.has-sub > a:after {
+  position: absolute;
+  top: 22px;
+  right: 11px;
+  width: 8px;
+  height: 2px;
+  display: block;
+  background: #dddddd;
+  content: "";
+}
+#cssmenu > ul > li.has-sub > a:before {
+  position: absolute;
+  top: 19px;
+  right: 14px;
+  display: block;
+  width: 2px;
+  height: 8px;
+  background: #dddddd;
+  content: "";
+  -webkit-transition: all 0.25s ease;
+  -moz-transition: all 0.25s ease;
+  -ms-transition: all 0.25s ease;
+  -o-transition: all 0.25s ease;
+  transition: all 0.25s ease;
+}
+#cssmenu > ul > li.has-sub:hover > a:before {
+  top: 23px;
+  height: 0;
+}
+#cssmenu ul ul {
+  position: absolute;
+  left: -9999px;
+  top: 50px;
+}
+#cssmenu.align-right ul ul {
+  text-align: right;
+}
+#cssmenu ul ul li {
+  height: 0;
+  -webkit-transition: all 0.25s ease;
+  -moz-transition: all 0.25s ease;
+  -ms-transition: all 0.25s ease;
+  -o-transition: all 0.25s ease;
+  transition: all 0.25s ease;
+}
+#cssmenu li:hover > ul {
+  left: auto;
+}
+#cssmenu.align-right li:hover > ul {
+  left: auto;
+  right: 0;
+}
+#cssmenu li:hover > ul > li {
+  height: 35px;
+}
+#cssmenu ul ul ul {
+  margin-left: 100%;
+  top: 10px;
+}
+#cssmenu.align-right ul ul ul {
+  margin-left: 0;
+  margin-right: 100%;
+}
+#cssmenu ul ul li a {
+  border-bottom: 1px solid rgba(150, 150, 150, 0.15);
+  padding: 11px 15px;
+  width: 170px;
+  font-size: 12px;
+  text-decoration: none;
+  color: #dddddd;
+  font-weight: 400;
+  background: #911c24;
+}
+#cssmenu ul ul li:last-child > a,
+#cssmenu ul ul li.last-item > a {
+  border-bottom: 0;
+}
+#cssmenu ul ul li:hover > a,
+#cssmenu ul ul li a:hover {
+  color: #ffffff;
+}
+#cssmenu ul ul li.has-sub > a:after {
+  position: absolute;
+  top: 16px;
+  right: 11px;
+  width: 8px;
+  height: 2px;
+  display: block;
+  background: #dddddd;
+  content: "";
+}
+#cssmenu.align-right ul ul li.has-sub > a:after {
+  right: auto;
+  left: 11px;
+}
+#cssmenu ul ul li.has-sub > a:before {
+  position: absolute;
+  top: 13px;
+  right: 14px;
+  display: block;
+  width: 2px;
+  height: 8px;
+  background: #dddddd;
+  content: "";
+  -webkit-transition: all 0.25s ease;
+  -moz-transition: all 0.25s ease;
+  -ms-transition: all 0.25s ease;
+  -o-transition: all 0.25s ease;
+  transition: all 0.25s ease;
+}
+#cssmenu.align-right ul ul li.has-sub > a:before {
+  right: auto;
+  left: 14px;
+}
+#cssmenu ul ul > li.has-sub:hover > a:before {
+  top: 17px;
+  height: 0;
+}
+
+
+
+/*--------------------------------------------------------------
+1.0 - BASE SITE STYLES
+--------------------------------------------------------------*/
+*,*:after,*:before {
+  box-sizing:border-box;
+  -moz-box-sizing:border-box;
+  -webkit-box-sizing:border-box;
+}
+
+.cf:before,
+.cf:after {
+    content:"";
+    display:table;
+}
+.cf:after {
+    clear:both;
+}
+
+body {
+  background: #3aaae8;
+  color: #fff;
+  font:12px/18px 'HelveticaNeue', Helvetica, Arial, sans-serif;
+}
+a,a:visited {
+  color:#fff
+}
+
+/*--------------------------------------------------------------
+2.0 - SEARCH FORM
+--------------------------------------------------------------*/
+.searchform {
+  left: 50%;
+  padding-top:3px;
+  padding-left:5px;
+  position: absolute;
+	margin: -22px 0 0 -170px;
+	top: 50%;
+  width:339px;
+  height: 35px;
+  border-radius: 35px;
+  -moz-border-radius: 35px;
+  -webkit-border-radius: 35px
+}
+
+.searchform input, .searchform button {
+	float: left
+}
+.searchform input {
+	background:#fefefe;
+	border: none;
+	font:12px/12px 'HelveticaNeue', Helvetica, Arial, sans-serif;
+  margin-right: 5px;
+  padding-top: 2.8px;
+  padding-left: 6px !important;
+  width: 216px;
+  height: 27px;
+  border-radius: 9px;
+  -moz-border-radius: 9px;
+  -webkit-border-radius: 9px
+}
+	.searchform input:focus {
+		outline: none;
+	}
+	.searchform input::-webkit-input-placeholder {
+  	font-style: italic;
+  	line-height: 15px
+	}
+
+	.searchform input:-moz-placeholder {
+	  font-style: italic;
+  	line-height: 15px
+	}
+
+.searchform button {
+	background: rgb(229,0,38);
+	background: -moz-linear-gradient(top, rgba(229,0,38,1) 0%, rgba(229,0,38,1) 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(52,173,236,1)), color-stop(100%,rgba(229,0,38,1)));
+	background: -webkit-linear-gradient(top, rgba(229,0,38,1) 0%,rgba(229,0,38,1) 100%);
+	background: -o-linear-gradient(top, rgba(229,0,38,1) 0%,rgba(229,0,38,1) 100%);
+	background: -ms-linear-gradient(top, rgba(229,0,38,1) 0%,rgba(229,0,38,1) 100%);
+	background: linear-gradient(to bottom, rgba(229,0,38,1) 0%,rgba(229,0,38,1) 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#34adec', endColorstr='#2691dc',GradientType=0 );
+	border: none;
+	color:#fff;
+	cursor: pointer;
+	font: 13px/13px 'HelveticaNeue', Helvetica, Arial, sans-serif;
+	text-align: center;
+  width:106px;
+  height: 27px;
+  border-radius: 9px;
+  -moz-border-radius: 9px;
+  -webkit-border-radius: 9px;
+}
+	.searchform button:hover {
+		opacity:.9;
+  }
+  
+
+
+
+
+
+.container2 {
+  height: 100px;
+  text-align: center;
+  margin-top: 200px;
+}
+
+.circle {
+  margin: 20px;
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  display: inline-block;
+  transform: scale(0);
+  animation: bulge 2s infinite ease-in-out;
+}
+
+.circle::after {
+  position: absolute;
+  display: inline-block;
+  content: '';
+  height: 100%;
+  width: 100%;
+  border-radius: 50%;
+  background-color: inherit;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  transform: scale(1);
+  animation: blow 2s infinite ease-in-out;
+}
+
+.circle:nth-child(1) {
+  background-color: #FE6848;
+  animation-delay: 0s;
+}
+
+.circle:nth-child(2) {
+  background-color: #DE411F;
+  animation-delay: .25s;
+}
+
+.circle:nth-child(3) {
+  background-color: #AB280C;
+  animation-delay: .50s;
+}
+
+
+@keyframes bulge {
+  50% {
+    transform: scale(1);
+  }
+}
+
+
+@keyframes blow {
+  25% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  90% {
+    opacity: 0;
+  }
+  100% {
+    transform: scale(2);
+    opacity: 0;
+  }
+}
+
+
+  

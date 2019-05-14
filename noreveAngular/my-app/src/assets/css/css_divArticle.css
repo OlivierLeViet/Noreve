@@ -1,0 +1,84 @@
+
+/** CSS DES DIV DES PRODUIT , AFFICHES SUR LA PAGE PRINCIPALE DU SITE **/
+.div-article {
+  width: 18.75em;
+  border: 1px solid #343333;
+  border-radius: 5px;
+  margin: 10px;
+  font-family: Montserrat, sans-serif !important;
+  font-weight: 700;
+  z-index: 100000000;
+  height: 633px;
+  color: black !important;
+}
+
+.div-clickable {
+  display: block;
+  height: 561px;
+  width: 100%;
+  text-decoration: none !important;
+  cursor: pointer;
+}
+
+.div-clickable:focus {
+  outline:0;
+}
+
+#details-btn:focus {
+  outline:0;
+}
+.div-image{
+  overflow: hidden;
+}
+
+.imageDivArticle {
+    height: 300px;
+    margin-left: 0.1%;
+    margin-right: 0.1%;
+    width: 99.8%;
+}
+
+.div-titre {
+  text-align: center;
+  height: 30px;
+  margin-bottom: 7px; 
+}
+
+.div-prix {
+  padding-top: 7px; 
+}
+
+.bar {
+  width: 80%;
+  height: 1px;
+  margin-left: 10%;
+  margin-right: 10%;
+}
+
+
+.div-description{
+  height: 200px;
+  text-transform: lowercase;
+}
+
+.div-notif{
+  text-align: center !important;
+  height: 10px;
+  color: #007600;
+  text-transform: lowercase;
+}
+
+#details-btn{
+  margin-left: 55px;
+  margin-top: 20px;
+}
+
+#details-btn:focus {
+  outline:0;
+}
+
+.div-bouton {
+  height: 52px;
+}
+
+

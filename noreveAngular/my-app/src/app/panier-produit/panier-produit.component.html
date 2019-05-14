@@ -1,0 +1,45 @@
+<div id="{{idDivGlobale}}">
+  <div class="product" id="divPanierProduit">
+    <div class="row justify-content-center align-items-center">
+      <div class="col-md-3">
+        <!-- div de l'image coté php correspondante au produit -->
+        <div class="product-image">
+          <img class="img-fluid d-block mx-auto image" src="{{imagePath}}" />
+        </div>
+      </div>
+      <div class="col-md-5 product-info">
+        <div id="pageProduitPanier" routerLink='../produits/{{id}}' class="product-name">{{title}}</div>
+        <div class="product-specs">
+          <div>
+            <span>{{title}} :&nbsp;</span><span class="value">{{description}}</span>
+          </div>
+        </div>
+      </div>
+      <div class="col-6 col-md-2 quantity">
+        
+      <table>
+        <tr>
+          <td>
+            <button type="button" class="btn-circle" mat-raised-button (click)="counter('decrement')"
+              [disabled]="count < 1"><span>-</span></button>
+          </td>
+          <td class="center-input">
+            <input class ="inputSpinnerPanierProduit" matInput name="counter" id={{idDivBouttonInputSpinner}} type="text" size="2" min="1" value="{{quantity}}" readonly>
+          </td>
+          <td>
+            <button type="button" class="btn-circle" mat-raised-button
+              (click)="counter('increment')"><span>+</span></button>
+          </td>
+        </tr>
+      </table>
+
+      </div>
+
+      <div class="col-6 col-md-2 price">
+        <!-- <img style = "width : 30px; height : 30px;"src="./assets/img/coin.png"> -->
+        <div style="margin-top : 10px !important; font-size: 0.9em;">{{priceWithQuantity}}€</div> 
+      </div>
+      <div class="col-6 col-md-2 price" id="idDivBoutton"><button type="button" class="btn btn-danger boutonSupprimer" id="boutonSupprimer" (click)="destroy()">supprimer</button></div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, shrink-to-fit=no"
+    />
+    <title>Noreve - Panier</title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Monrat:400,400i,700,700i,600,600i"
+    />
+    <link rel="stylesheet" href="assets/fonts/simple-line-icons.min.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.css"
+    />
+    <link rel="stylesheet" href="assets/css/main.css" />
+  </head>
+
+  <body style = "background-color: #f6f6f6;">
+    <nav
+      class="navbar navbar-light navbar-expand-lg fixed-top bg-white clean-navbar fadeIn header-standard navWithoutBorder"
+    >
+      <a class="navbar-brand2 titreProduit" href="#">NOREVE</a>
+
+
+      <div class="divBoutonProduit">
+        <button routerLink="" class="btn btn btn-primary btn-lg fadeIn"type="button" data-toggle="collapse"
+          data-target="#multiCollapseExample2" aria-expanded="false" aria-controls="multiCollapseExample2" href="#">
+          <img class="flecheImage" src="./assets/img/left-arrow.png" />
+          Retour
+        </button>
+      </div>
+      
+    </nav>
+
+
+
+    <main class="page shopping-cart-page fadeIn">
+      <section class="clean-block clean-cart dark">
+        <div class="container">
+          <div class="block-heading">
+            <h2 class="text-info">Votre panier</h2>
+          </div>
+          <div class="content">
+            <div class="row no-gutters">
+              <div class="col-md-12 col-lg-8">
+                <div class="items" id="itemContainer">
+                  <template #DivArticleContainer> </template>            
+                </div>
+              </div>
+
+
+              <!-- Ici la div du Total à payer en fonction du span price additioner pour chaque div product générer-->
+              <div class="col-md-12 col-lg-4">
+                <div class="summary">          
+                  <button
+                  class="btn btn-primary btn-block btn-lg" id="viderLePanier"
+                  type="button" (click)="clear()"
+                  >
+                  Vider le panier
+                  </button>
+
+                  <h4>
+                    <span class="text">Produits</span
+                    ><span class="price" id="priceDiv">{{priceWithoutTVA}} €</span>
+                  </h4>
+                  <h4>
+                    <span class="text">TVA</span><span class="price" id="TVADiv">{{TVAPrice}} €</span>
+                  </h4>
+                  <h4>
+                    <span class="text">Total</span
+                    ><span class="price" id="totalPriceDiv">{{priceCard}} €</span>
+                  </h4>
+                  <button
+                    class="btn btn-primary btn-block btn-lg"
+                    type="button" >
+                    Passer en caisse
+                  </button>
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+
+
+
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.js"></script>
+    <script src="assets/js/smoothproducts.min.js"></script>
+    <script src="assets/js/theme.js"></script>
+  </body>
+</html>
